@@ -1,0 +1,16 @@
+com\zerodech\dao\PickupDAO.class
+com\zerodech\servlet\RegisterServlet.class
+com\zerodech\servlet\PaymentServlet.class
+com\zerodech\dao\PaymentDAO.class
+com\zerodech\model\User.class
+com\zerodech\servlet\FeedbackServlet.class
+com\zerodech\model\Pickup.class
+com\zerodech\servlet\PickupServlet.class
+com\zerodech\model\Payment.class
+com\mycompany\zerodech\JakartaRestConfiguration.class
+com\zerodech\servlet\LoginServlet.class
+com\zerodech\dao\FeedbackDAO.class
+com\zerodech\dao\UserDAO.class
+com\mycompany\zerodech\resources\JakartaEE10Resource.class
+com\zerodech\model\Feedback.class
+com\zerodech\dao\DBConnection.class
