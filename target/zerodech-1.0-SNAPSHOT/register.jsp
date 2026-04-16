@@ -1,44 +1,80 @@
-<%-- 
-    Document   : register
-    Created on : Apr 8, 2026, 12:03:18 PM
-    Author     : Administrator
---%>
-
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Zerodech - Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zerodech — Créer un compte</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h2>Create Account</h2>
-    <form action="register" method="post">
-        <label>Full Name:</label><br>
-        <input type="text" name="fullName" required><br><br>
+<div class="auth-page">
+    <div class="form-card wide">
+        <div class="auth-logo">
+            <h2>🌿 Zerodech</h2>
+            <p>Créez votre compte et rejoignez notre réseau.</p>
+        </div>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+        <%
+            String error = (String) request.getAttribute("error");
+            if (error != null) {
+        %>
+        <div class="error-box">⚠️ <%= error %></div>
+        <% } %>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+        <form id="registerForm" action="register" method="post" novalidate>
 
-        <label>Role:</label><br>
-        <select name="role" required>
-            <option value="CLIENT">Client</option>
-            <option value="COLLECTOR">Collector</option>
-            <option value="ADMIN">Admin</option>
-        </select><br><br>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regName">Nom complet *</label>
+                    <input type="text" id="regName" name="fullName"
+                           placeholder="Marie Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Téléphone</label>
+                    <input type="tel" id="regPhone" name="phone"
+                           placeholder="+237 6XX XXX XXX">
+                </div>
+            </div>
 
-        <label>Phone:</label><br>
-        <input type="text" name="phone"><br><br>
+            <div class="form-group">
+                <label for="regEmail">Adresse email *</label>
+                <input type="email" id="regEmail" name="email"
+                       placeholder="exemple@email.com" required autocomplete="email">
+            </div>
 
-        <label>Address:</label><br>
-        <input type="text" name="address"><br><br>
+            <div class="form-group">
+                <label for="regPassword">Mot de passe *</label>
+                <input type="password" id="regPassword" name="password"
+                       placeholder="Minimum 6 caractères" required autocomplete="new-password">
+                <span class="form-hint">Au moins 6 caractères.</span>
+            </div>
 
-        <button type="submit">Register</button>
-    </form>
+            <div class="form-group">
+                <label for="regRole">Type de compte *</label>
+                <select id="regRole" name="role" required>
+                    <option value="CLIENT">Client — Je veux faire collecter mes déchets</option>
+                    <option value="COLLECTOR">Collecteur — Je collecte les déchets</option>
+                </select>
+            </div>
 
-    <br>
-    <a href="login.jsp">Back to Login</a>
+            <div class="form-group">
+                <label for="regAddress">Adresse / Quartier</label>
+                <input type="text" id="regAddress" name="address"
+                       placeholder="Douala Akwa, Cameroun">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top:.5rem;">
+                Créer mon compte
+            </button>
+        </form>
+
+        <div class="divider"></div>
+        <p style="text-align:center;font-size:.9rem;color:var(--text-mid);">
+            Déjà inscrit ? <a href="login.jsp">Se connecter</a>
+        </p>
+    </div>
+</div>
+<script src="js/validation.js"></script>
 </body>
 </html>
