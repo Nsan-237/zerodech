@@ -89,10 +89,12 @@ public class SubscriptionDAO {
 
     // ── GET ACTIVE SUBSCRIPTION FOR USER ─────────────────────
     public Subscription getActiveSubscription(int userId) {
-        String sql = "SELECT s.*, sp.name AS plan_name, sp.price AS plan_price " +
-                     "FROM subscriptions s JOIN subscription_plans sp ON s.plan_id = sp.id " +
-                     "WHERE s.user_id = ? AND s.status = 'ACTIVE' AND s.end_date >= SYSDATE " +
-                     "ORDER BY s.start_date DESC FETCH FIRST 1 ROW ONLY";
+        String sql = "SELECT * FROM (" +
+                     "  SELECT s.*, sp.name AS plan_name, sp.price AS plan_price " +
+                     "  FROM subscriptions s JOIN subscription_plans sp ON s.plan_id = sp.id " +
+                     "  WHERE s.user_id = ? AND s.status = 'ACTIVE' AND s.end_date >= SYSDATE " +
+                     "  ORDER BY s.start_date DESC" +
+                     ") WHERE ROWNUM = 1";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, userId);

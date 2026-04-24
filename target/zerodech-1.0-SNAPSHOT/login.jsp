@@ -1,10 +1,10 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zerodech — Connexion</title>
+    <title>Zerodech — Login</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="form-card">
         <div class="auth-logo">
             <h2>🌿 Zerodech</h2>
-            <p>Bienvenue ! Connectez-vous à votre compte.</p>
+            <p>Welcome! Log in to your account.</p>
         </div>
 
         <%
@@ -32,28 +32,28 @@
         <form id="loginForm" action="login" method="post" novalidate>
 
             <div class="form-group">
-                <label for="loginEmail">Adresse email</label>
+                <label for="loginEmail">Email address</label>
                 <input type="email" id="loginEmail" name="email"
-                       placeholder="exemple@email.com"
+                       placeholder="example@email.com"
                        value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>"
                        autocomplete="email">
             </div>
 
             <div class="form-group">
-                <label for="loginPassword">Mot de passe</label>
+                <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" name="password"
                        placeholder="••••••••"
                        autocomplete="current-password">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block" style="margin-top:.5rem;">
-                Se connecter
+                Login
             </button>
         </form>
 
         <div class="divider"></div>
         <p style="text-align:center;font-size:.9rem;color:var(--text-mid);">
-            Pas encore de compte ? <a href="register.jsp">S'inscrire</a>
+            Don't have an account yet? <a href="register.jsp">Register</a>
         </p>
     </div>
 </div>

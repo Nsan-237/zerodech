@@ -168,14 +168,14 @@ public class PickupDAO {
         p.setClientId(rs.getInt("client_id"));
         int cid = rs.getInt("collector_id");
         p.setCollectorId(rs.wasNull() ? null : cid);
-        p.setWasteType(rs.getString("waste_type"));
+        try { p.setWasteType(rs.getString("waste_type")); } catch (SQLException ignored) {}
         p.setLocation(rs.getString("location"));
         p.setPickupDate(rs.getDate("pickup_date"));
-        p.setStatus(rs.getString("status"));
-        p.setNotes(rs.getString("notes"));
-        p.setCollectorNote(rs.getString("collector_note"));
-        p.setCreatedAt(rs.getDate("created_at"));
-        p.setCompletedAt(rs.getDate("completed_at"));
+        try { p.setStatus(rs.getString("status")); } catch (SQLException ignored) {}
+        try { p.setNotes(rs.getString("notes")); } catch (SQLException ignored) {}
+        try { p.setCollectorNote(rs.getString("collector_note")); } catch (SQLException ignored) {}
+        try { p.setCreatedAt(rs.getDate("created_at")); } catch (SQLException ignored) {}
+        try { p.setCompletedAt(rs.getDate("completed_at")); } catch (SQLException ignored) {}
         // joined columns (may not exist in all queries)
         try { p.setClientName(rs.getString("client_name")); } catch (SQLException ignored) {}
         try { p.setClientPhone(rs.getString("client_phone")); } catch (SQLException ignored) {}

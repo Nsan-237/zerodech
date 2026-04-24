@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         if (email == null || email.trim().isEmpty() || password == null || password.trim().isEmpty()) {
-            request.setAttribute("error", "Veuillez remplir tous les champs.");
+            request.setAttribute("error", "Please fill in all fields.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
             return;
         }
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
             session.setMaxInactiveInterval(30 * 60); // 30 minutes
             redirectByRole(user, response, request);
         } else {
-            request.setAttribute("error", "Email ou mot de passe incorrect.");
+            request.setAttribute("error", "Incorrect email or password.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }

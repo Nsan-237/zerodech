@@ -184,25 +184,25 @@ END;
 
 -- Subscription Plans
 INSERT INTO subscription_plans (name, price, description, duration_days)
-VALUES ('Basic', 4000, 'Collecte 1x par semaine - ordures menageres standards', 30);
+VALUES ('Basic', 4000, 'Collect 1x per week - standard household waste', 30);
 
 INSERT INTO subscription_plans (name, price, description, duration_days)
-VALUES ('Standard', 7000, 'Collecte 2x par semaine - tous types de dechets', 30);
+VALUES ('Standard', 7000, 'Collect 2x per week - all types of waste', 30);
 
 INSERT INTO subscription_plans (name, price, description, duration_days)
-VALUES ('Premium', 12000, 'Collecte quotidienne - priorite absolue - tous quartiers', 30);
+VALUES ('Premium', 12000, 'Daily collection - top priority - all neighborhoods', 30);
 
 -- Admin user (password: admin123)
 INSERT INTO users (full_name, email, password, role, phone, address)
-VALUES ('Super Admin', 'admin@zerodech.cm', 'admin123', 'ADMIN', '+237600000001', 'Douala, Cameroun');
+VALUES ('Super Admin', 'admin@zerodech.cm', 'admin123', 'ADMIN', '+237600000001', 'Douala, Cameroon');
 
 -- Sample Collector (password: collector123)
 INSERT INTO users (full_name, email, password, role, phone, address)
-VALUES ('Jean Collecteur', 'collector@zerodech.cm', 'collector123', 'COLLECTOR', '+237600000002', 'Yaounde, Cameroun');
+VALUES ('John Collector', 'collector@zerodech.cm', 'collector123', 'COLLECTOR', '+237600000002', 'Yaounde, Cameroon');
 
 -- Sample Client (password: client123)
 INSERT INTO users (full_name, email, password, role, phone, address)
-VALUES ('Marie Cliente', 'client@zerodech.cm', 'client123', 'CLIENT', '+237677000003', 'Douala Akwa, Cameroun');
+VALUES ('Mary Client', 'client@zerodech.cm', 'client123', 'CLIENT', '+237677000003', 'Douala Akwa, Cameroon');
 
 COMMIT;
 

@@ -23,29 +23,26 @@ public class RegisterServlet extends HttpServlet {
         String phone    = request.getParameter("phone");
         String address  = request.getParameter("address");
 
-        // ── Basic validation ──────────────────────────────────
         if (fullName == null || fullName.trim().isEmpty() ||
-            email    == null || email.trim().isEmpty()    ||
+            email == null || email.trim().isEmpty() ||
             password == null || password.trim().isEmpty()) {
-            request.setAttribute("error", "Nom, email et mot de passe sont obligatoires.");
+            request.setAttribute("error", "Name, email and password are required.");
             request.getRequestDispatcher("/register.jsp").forward(request, response);
             return;
         }
 
-        // Default role to CLIENT if not provided / invalid
-        if (role == null || (!role.equals("CLIENT") && !role.equals("COLLECTOR"))) {
+        if (role == null || (!role.equals("CLIENT") && !role.equals("COLLECTOR") && !role.equals("ADMIN"))) {
             role = "CLIENT";
         }
 
-        // ── Check email uniqueness ────────────────────────────
         UserDAO userDAO = new UserDAO();
+
         if (userDAO.emailExists(email.trim())) {
-            request.setAttribute("error", "Cet email est déjà utilisé. Veuillez vous connecter.");
+            request.setAttribute("error", "This email is already taken. Please login.");
             request.getRequestDispatcher("/register.jsp").forward(request, response);
             return;
         }
 
-        // ── Build user and insert ─────────────────────────────
         User user = new User();
         user.setFullName(fullName.trim());
         user.setEmail(email.trim());
@@ -57,10 +54,10 @@ public class RegisterServlet extends HttpServlet {
         boolean success = userDAO.insertUser(user);
 
         if (success) {
-            request.setAttribute("success", "Compte créé avec succès ! Connectez-vous maintenant.");
+            request.setAttribute("success", "Account successfully created! Log in now.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
-            request.setAttribute("error", "Échec de l'inscription. Veuillez réessayer.");
+            request.setAttribute("error", "Registration failed. Please try again.");
             request.getRequestDispatcher("/register.jsp").forward(request, response);
         }
     }

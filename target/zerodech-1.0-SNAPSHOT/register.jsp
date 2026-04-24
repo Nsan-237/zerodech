@@ -1,10 +1,10 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zerodech — Créer un compte</title>
+    <title>Zerodech — Create an account</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="form-card wide">
         <div class="auth-logo">
             <h2>🌿 Zerodech</h2>
-            <p>Créez votre compte et rejoignez notre réseau.</p>
+            <p>Create your account and join our network.</p>
         </div>
 
         <%
@@ -26,52 +26,52 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="regName">Nom complet *</label>
+                    <label for="regName">Full Name *</label>
                     <input type="text" id="regName" name="fullName"
-                           placeholder="Marie Dupont" required>
+                           placeholder="John Doe" required>
                 </div>
                 <div class="form-group">
-                    <label for="regPhone">Téléphone</label>
+                    <label for="regPhone">Phone</label>
                     <input type="tel" id="regPhone" name="phone"
                            placeholder="+237 6XX XXX XXX">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="regEmail">Adresse email *</label>
+                <label for="regEmail">Email Address *</label>
                 <input type="email" id="regEmail" name="email"
-                       placeholder="exemple@email.com" required autocomplete="email">
+                       placeholder="example@email.com" required autocomplete="email">
             </div>
 
             <div class="form-group">
-                <label for="regPassword">Mot de passe *</label>
+                <label for="regPassword">Password *</label>
                 <input type="password" id="regPassword" name="password"
-                       placeholder="Minimum 6 caractères" required autocomplete="new-password">
-                <span class="form-hint">Au moins 6 caractères.</span>
+                       placeholder="Minimum 6 characters" required autocomplete="new-password">
+                <span class="form-hint">At least 6 characters.</span>
             </div>
 
             <div class="form-group">
-                <label for="regRole">Type de compte *</label>
+                <label for="regRole">Account Type *</label>
                 <select id="regRole" name="role" required>
-                    <option value="CLIENT">Client — Je veux faire collecter mes déchets</option>
-                    <option value="COLLECTOR">Collecteur — Je collecte les déchets</option>
+                    <option value="CLIENT">Client — I want my waste collected</option>
+                    <option value="COLLECTOR">Collector — I collect waste</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="regAddress">Adresse / Quartier</label>
+                <label for="regAddress">Address / Neighborhood</label>
                 <input type="text" id="regAddress" name="address"
-                       placeholder="Douala Akwa, Cameroun">
+                       placeholder="Douala Akwa, Cameroon">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block" style="margin-top:.5rem;">
-                Créer mon compte
+                Create my account
             </button>
         </form>
 
         <div class="divider"></div>
         <p style="text-align:center;font-size:.9rem;color:var(--text-mid);">
-            Déjà inscrit ? <a href="login.jsp">Se connecter</a>
+            Already registered? <a href="login.jsp">Login</a>
         </p>
     </div>
 </div>
